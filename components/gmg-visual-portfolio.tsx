@@ -27,9 +27,6 @@ export default function GMGVisualPortfolio({
     if (typeof window === "undefined") return
 
     const checkMobile = () => {
-      // TEMPORARY DIAGNOSTIC — see if a resize (e.g. iOS toolbar collapse on scroll)
-      // ever flips isMobile and forces the hero <video> to remount via its key.
-      console.log("[hero-video] resize", { innerWidth: window.innerWidth, willBeMobile: window.innerWidth <= 768 })
       setIsMobile(window.innerWidth <= 768)
     }
 
@@ -69,12 +66,7 @@ export default function GMGVisualPortfolio({
   useEffect(() => {
     if (typeof window === "undefined") return
 
-    const handleScroll = () => {
-      // TEMPORARY DIAGNOSTIC — correlate the scroll-driven isNavScrolled re-render
-      // with when the hero video actually starts rendering visible frames.
-      console.log("[hero-video] scroll", { scrollY: window.scrollY })
-      setIsNavScrolled(window.scrollY > 20)
-    }
+    const handleScroll = () => setIsNavScrolled(window.scrollY > 20)
 
     handleScroll()
     window.addEventListener("scroll", handleScroll, { passive: true })
@@ -204,70 +196,6 @@ export default function GMGVisualPortfolio({
   } | null>(null)
 
   const [loadedVideos, setLoadedVideos] = useState<Set<string>>(new Set())
-
-  // TEMPORARY DIAGNOSTIC — passive observer only. No play()/load()/onClick: we are
-  // only watching what the browser does natively in response to the user's tap on
-  // WebKit's own Play affordance, and correlating it against the scroll/resize logs
-  // above to find what "unsticks" playback on production.
-  const heroVideoRef = useRef<HTMLVideoElement>(null)
-  useEffect(() => {
-    const video = heroVideoRef.current
-    if (!video) return
-
-    const snapshot = () => ({
-      t: Math.round(performance.now()),
-      paused: video.paused,
-      currentTime: Number(video.currentTime.toFixed(3)),
-      readyState: video.readyState,
-      networkState: video.networkState,
-      currentSrc: video.currentSrc,
-      error: video.error ? { code: video.error.code, message: video.error.message } : null,
-    })
-
-    const log = (label: string) => console.log(`[hero-video] ${label}`, snapshot())
-
-    const events = [
-      "loadstart",
-      "loadedmetadata",
-      "loadeddata",
-      "canplay",
-      "canplaythrough",
-      "play",
-      "playing",
-      "pause",
-      "waiting",
-      "stalled",
-      "suspend",
-      "abort",
-      "emptied",
-      "error",
-    ] as const
-
-    const listeners = events.map((evt) => {
-      const handler = () => log(evt)
-      video.addEventListener(evt, handler)
-      return [evt, handler] as const
-    })
-
-    // timeupdate fires naturally whenever currentTime actually advances during real
-    // playback — this is how we detect "decoding silently" without polling: throttle
-    // to once per ~250ms of video-time so it doesn't flood the console.
-    let lastLoggedTime = -1
-    const handleTimeUpdate = () => {
-      if (Math.abs(video.currentTime - lastLoggedTime) >= 0.25) {
-        lastLoggedTime = video.currentTime
-        log("timeupdate")
-      }
-    }
-    video.addEventListener("timeupdate", handleTimeUpdate)
-
-    log("effect-mount")
-
-    return () => {
-      listeners.forEach(([evt, handler]) => video.removeEventListener(evt, handler))
-      video.removeEventListener("timeupdate", handleTimeUpdate)
-    }
-  }, [isMobile])
 
   const quoteInterestOptions = [
     "All In One",
@@ -1105,7 +1033,6 @@ export default function GMGVisualPortfolio({
       {/* Hero Section */}
       <section id="hero" className="relative min-h-screen overflow-hidden">
         <video
-          ref={heroVideoRef}
           key={isMobile ? "mobile" : "desktop"}
           src={
             isMobile
