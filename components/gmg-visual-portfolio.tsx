@@ -790,7 +790,7 @@ export default function GMGVisualPortfolio({
       id: 3,
       name: "Mai Wellbeing",
       description: "A holistic wellbeing project focused on balance, mindfulness and personal growth.",
-      url: null,
+      url: "https://www.maiwellbeing.space/",
       logo: "/gmgvisual-v02-assets/loghi-websites/mai-wellbeing-logo.png",
     },
   ]
