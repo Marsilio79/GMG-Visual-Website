@@ -60,16 +60,45 @@ function buildCategory(label: string, sources: PhotoSource[]): PhotoItem[] {
   return items
 }
 
+// Manually curated display order for the first 12 Food & Hospitality carousel
+// slides. Filenames not listed here keep their default sorted order and are
+// appended after these.
+const FOOD_FEATURED_ORDER = [
+  "4poggio-falcone.webp",
+  "2Burgers-Chops.webp",
+  "3Restaurant-HaNoi.webp",
+  "5WideOasya.webp",
+  "6Segafredo-gelato.webp",
+  "7Hotel-room.webp",
+  "8Garden-hotel.webp",
+  "9Sunset-starter.webp",
+  "10Resort-puluong.webp",
+  "11Lim-restaurant.webp",
+  "12Lim-meat.webp",
+  "1WideOAsya6.webp",
+]
+
+function applyFeaturedOrder(items: PhotoItem[], featuredFilenames: string[]): PhotoItem[] {
+  const byFilename = new Map(items.map((item) => [path.basename(item.id), item]))
+  const featured = featuredFilenames.map((filename) => byFilename.get(filename)).filter((item): item is PhotoItem => Boolean(item))
+  const featuredSet = new Set(featuredFilenames)
+  const rest = items.filter((item) => !featuredSet.has(path.basename(item.id)))
+  return [...featured, ...rest]
+}
+
 export function getPhotoCategories(): PhotoCategories {
   const publicDir = path.join(process.cwd(), "public")
   const newPicturesDir = path.join(publicDir, "gmgvisual-v02-assets", "new-pictures")
   const newPicturesUrlPrefix = "/gmgvisual-v02-assets/new-pictures"
 
   return {
-    food: buildCategory("Food & Hospitality", [
-      { dir: path.join(publicDir, "images", "food"), urlPrefix: "/images/food" },
-      { dir: path.join(newPicturesDir, "food-hospitality"), urlPrefix: `${newPicturesUrlPrefix}/food-hospitality` },
-    ]),
+    food: applyFeaturedOrder(
+      buildCategory("Food & Hospitality", [
+        { dir: path.join(publicDir, "images", "food"), urlPrefix: "/images/food" },
+        { dir: path.join(newPicturesDir, "food-hospitality"), urlPrefix: `${newPicturesUrlPrefix}/food-hospitality` },
+      ]),
+      FOOD_FEATURED_ORDER,
+    ),
     events: buildCategory("Events", [
       { dir: path.join(publicDir, "images", "events"), urlPrefix: "/images/events" },
       { dir: path.join(newPicturesDir, "events"), urlPrefix: `${newPicturesUrlPrefix}/events` },
