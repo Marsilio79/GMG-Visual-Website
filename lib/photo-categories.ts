@@ -35,24 +35,61 @@ function listImageFiles(absoluteDir: string): string[] {
     .sort((a, b) => a.localeCompare(b, undefined, { numeric: true, sensitivity: "base" }))
 }
 
+const IGNORED_FILENAME_TOKENS = new Set([
+  "pic",
+  "january",
+  "february",
+  "march",
+  "april",
+  "may",
+  "june",
+  "july",
+  "august",
+  "september",
+  "october",
+  "november",
+  "december",
+])
+
+// Turns a file name into a few readable words for the alt text. Returns an empty
+// string when the name is only a camera number (DSC01198, DJI_0063, 0535 and so on),
+// so those images get a clean generic description instead of a meaningless code.
 function humanize(filename: string): string {
   const base = filename.replace(/\.[^.]+$/, "")
-  const words = base
-    .replace(/^[0-9]+[-_]*/, "")
-    .replace(/[-_]+/g, " ")
-    .trim()
-  return words.length > 0 ? words : base
+  const tokens = base
+    .replace(/([a-z])([A-Z])/g, "$1 $2")
+    .split(/[-_.\s]+/)
+    .map((token) => token.replace(/^\d+/, "").replace(/\d+$/, ""))
+    .filter((token) => token.length > 1)
+    .filter((token) => !/^(dsc|dji|gna|img)$/i.test(token))
+    .filter((token) => !IGNORED_FILENAME_TOKENS.has(token.toLowerCase()))
+
+  const words = tokens.join(" ").trim()
+  return words.length >= 3 ? words.toLowerCase() : ""
 }
 
-function buildCategory(label: string, sources: PhotoSource[]): PhotoItem[] {
+interface CategoryOptions {
+  // Used for photos of people where the file name holds a personal name: the alt
+  // text stays descriptive without naming anyone.
+  anonymous?: boolean
+}
+
+function buildCategory(label: string, sources: PhotoSource[], options: CategoryOptions = {}): PhotoItem[] {
   const items: PhotoItem[] = []
 
   for (const { dir, urlPrefix } of sources) {
     for (const filename of listImageFiles(dir)) {
+      const words = options.anonymous ? "" : humanize(filename)
+      const alt = options.anonymous
+        ? `${label}: close up portrait of a human iris, by GMG Visual`
+        : words
+          ? `${label}: ${words}, by GMG Visual`
+          : `${label} by GMG Visual`
+
       items.push({
         id: `${urlPrefix}/${filename}`,
         src: `${urlPrefix}/${encodeURIComponent(filename)}`,
-        alt: `${label} - ${humanize(filename)}`,
+        alt,
       })
     }
   }
@@ -93,20 +130,22 @@ export function getPhotoCategories(): PhotoCategories {
 
   return {
     food: applyFeaturedOrder(
-      buildCategory("Food & Hospitality", [
+      buildCategory("Food and hospitality photography", [
         { dir: path.join(publicDir, "images", "food"), urlPrefix: "/images/food" },
         { dir: path.join(newPicturesDir, "food-hospitality"), urlPrefix: `${newPicturesUrlPrefix}/food-hospitality` },
       ]),
       FOOD_FEATURED_ORDER,
     ),
-    events: buildCategory("Events", [
+    events: buildCategory("Event photography", [
       { dir: path.join(publicDir, "images", "events"), urlPrefix: "/images/events" },
       { dir: path.join(newPicturesDir, "events"), urlPrefix: `${newPicturesUrlPrefix}/events` },
     ]),
-    portraits: buildCategory("Portraits", [
+    portraits: buildCategory("Portrait photography", [
       { dir: path.join(publicDir, "images", "portraits"), urlPrefix: "/images/portraits" },
       { dir: path.join(newPicturesDir, "portraits"), urlPrefix: `${newPicturesUrlPrefix}/portraits` },
     ]),
-    iris: buildCategory("Iris Photography", [{ dir: path.join(publicDir, "images", "iris"), urlPrefix: "/images/iris" }]),
+    iris: buildCategory("Iris photography", [{ dir: path.join(publicDir, "images", "iris"), urlPrefix: "/images/iris" }], {
+      anonymous: true,
+    }),
   }
 }
