@@ -12,9 +12,9 @@ const spaceGrotesk = Space_Grotesk({
 
 const siteUrl = "https://gmgvisual.com"
 const siteName = "GMG Visual"
-const title = "GMG Visual | Photography & Virtual Tours in Hội An, Da Nang"
+const title = "GMG Visual | Video, Photo & Virtual Tours in Hội An, Da Nang, Vietnam"
 const description =
-  "Photography, videography, Google Maps & 360° virtual tours and websites for hotels, restaurants and brands in Hội An, Da Nang and across Vietnam."
+  "Video production, photography, Google Maps & 360° virtual tours and websites for hotels, restaurants and brands in Hội An, Da Nang and across Vietnam."
 const ogImage = "https://gmgvisual.com/gmgvisual-v02-assets/graphok.jpg"
 
 export const metadata: Metadata = {
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
         url: ogImage,
         width: 1200,
         height: 630,
-        alt: "GMG Visual: Photography, Videography & Virtual Tours in Hội An and Da Nang",
+        alt: "GMG Visual: Video Production, Photography & Virtual Tours in Hội An, Da Nang and across Vietnam",
       },
     ],
   },
@@ -104,6 +104,7 @@ const structuredData = {
         { "@type": "Country", name: "Vietnam" },
       ],
       knowsAbout: [
+        "Video production",
         "Hospitality photography",
         "Food photography",
         "Event photography",

@@ -3,7 +3,7 @@ export const faqs = [
   {
     question: "What does GMG Visual do?",
     answer:
-      "GMG Visual is a creative studio offering photography, videography, Google Maps 360° virtual tours, websites and social media content for hotels, restaurants and brands in Hội An, Da Nang and across Vietnam.",
+      "GMG Visual is a creative studio offering video production, photography, Google Maps 360° virtual tours, websites and social media content for hotels, restaurants and brands in Hội An, Da Nang and across Vietnam.",
   },
   {
     question: "Where is GMG Visual based and where do you work?",
