@@ -2626,6 +2626,28 @@ export default function GMGVisualPortfolio({
                     YouTube Channel
                   </Link>
                 </div>
+                <div>
+                  <p className="text-xs uppercase tracking-wider text-textMuted/70 mb-1">Facebook</p>
+                  <Link
+                    href="https://www.facebook.com/GMGVisual"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-textMuted font-light hover:text-primary transition-colors"
+                  >
+                    Facebook Page
+                  </Link>
+                </div>
+                <div>
+                  <p className="text-xs uppercase tracking-wider text-textMuted/70 mb-1">Instagram</p>
+                  <Link
+                    href="https://www.instagram.com/gmgvisualVN/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-textMuted font-light hover:text-primary transition-colors"
+                  >
+                    Instagram Profile
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
