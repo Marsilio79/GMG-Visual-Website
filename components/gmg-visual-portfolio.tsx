@@ -1082,7 +1082,7 @@ export default function GMGVisualPortfolio({
       <section id="approach" className="pt-16 md:pt-24 pb-16 md:pb-20 px-6">
         <div className="max-w-[700px] mx-auto text-center">
           <p className="mb-6 md:mb-8 text-[11px] md:text-xs tracking-[0.3em] uppercase font-light text-textMuted">
-            Hội An · Da Nang · Central Vietnam
+            Hội An · Da Nang · Vietnam
           </p>
           <h1 className="font-heading text-5xl sm:text-6xl md:text-7xl font-medium tracking-tight text-textPrimary leading-[1.1] mb-8 md:mb-10">
             {"The Way You're Seen Matters."}
