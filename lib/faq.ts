@@ -21,8 +21,8 @@ export const faqs = [
       "Yes. We build websites for hotels, restaurants and brands, and we can use our own photos, videos and virtual tours on them.",
   },
   {
-    question: "How do I request a quote?",
+    question: "Who do you work with?",
     answer:
-      "Send a message on WhatsApp or Zalo at +84 369 007 610, or use the quote form on this page. Tell us what you need and where, and we will reply with a proposal.",
+      "We work with hotels, restaurants, brands and creators in Hội An, Da Nang and Central Vietnam, from a single photo shoot to a full package of photos, video, virtual tour and website.",
   },
 ]
