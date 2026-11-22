@@ -125,7 +125,7 @@ export function SiteFooter() {
               <div>
                 <p className="text-xs uppercase tracking-wider text-textMuted/70 mb-1">YouTube</p>
                 <Link
-                  href="https://www.youtube.com/c/LafresiaMediaProductions/videos"
+                  href="https://www.youtube.com/@GMGVisualVN/videos"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-textMuted font-light hover:text-primary transition-colors"

@@ -129,7 +129,7 @@ const structuredData = {
       },
       sameAs: [
         "https://www.linkedin.com/in/gmgvisual/",
-        "https://www.youtube.com/c/LafresiaMediaProductions/videos",
+        "https://www.youtube.com/@GMGVisualVN/videos",
       ],
     },
     {

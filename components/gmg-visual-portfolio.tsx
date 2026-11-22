@@ -1498,7 +1498,7 @@ export default function GMGVisualPortfolio({
 
           <div className="mt-16 md:mt-20 flex flex-col sm:flex-row sm:items-center sm:justify-center gap-6 sm:gap-12">
             <Link
-              href="https://www.youtube.com/c/LafresiaMediaProductions/videos"
+              href="https://www.youtube.com/@GMGVisualVN/videos"
               target="_blank"
               rel="noopener noreferrer"
               className="group inline-flex items-center gap-2 text-sm md:text-base tracking-[0.2em] uppercase font-medium text-textPrimary border-b border-textPrimary/30 hover:border-textPrimary pb-1 transition-colors"
@@ -1507,7 +1507,7 @@ export default function GMGVisualPortfolio({
               <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
             </Link>
             <Link
-              href="https://www.youtube.com/@LafresiaMediaProductions/shorts"
+              href="https://www.youtube.com/@GMGVisualVN/shorts"
               target="_blank"
               rel="noopener noreferrer"
               className="group inline-flex items-center gap-2 text-sm md:text-base tracking-[0.2em] uppercase font-medium text-textPrimary border-b border-textPrimary/30 hover:border-textPrimary pb-1 transition-colors"
@@ -2580,7 +2580,7 @@ export default function GMGVisualPortfolio({
                 <div>
                   <p className="text-xs uppercase tracking-wider text-textMuted/70 mb-1">YouTube</p>
                   <Link
-                    href="https://www.youtube.com/c/LafresiaMediaProductions/videos"
+                    href="https://www.youtube.com/@GMGVisualVN/videos"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-textMuted font-light hover:text-primary transition-colors"
