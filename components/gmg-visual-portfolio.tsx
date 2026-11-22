@@ -1091,7 +1091,7 @@ export default function GMGVisualPortfolio({
             <p>People discover your business long before they visit it.</p>
             <p>
               From Hội An and Da Nang, we help hotels, restaurants, brands and creators build a digital presence
-              through photography, videography, virtual tours and modern websites.
+              through video, photography, virtual tours and modern websites.
             </p>
           </div>
           <Link
@@ -1879,7 +1879,7 @@ export default function GMGVisualPortfolio({
             </h2>
             <div className="w-24 h-px bg-gray-300 mx-auto mb-6" />
             <p className="text-textMuted font-light text-lg max-w-4xl mx-auto leading-relaxed">
-              Where photography, video and storytelling come together in one digital experience.
+              Where video, photography and storytelling come together in one digital experience.
             </p>
           </div>
 
@@ -2441,7 +2441,7 @@ export default function GMGVisualPortfolio({
                 className="h-44 md:h-32 w-auto mb-3 md:mb-8"
               />
               <p className="text-textMuted font-light leading-relaxed">
-                Photography, videography, virtual tours and websites designed around your business.
+                Video production, photography, virtual tours and websites designed around your business.
               </p>
             </div>
 
