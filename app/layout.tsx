@@ -19,6 +19,9 @@ const ogImage = "https://gmgvisual.com/gmgvisual-v02-assets/graphok.jpg"
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
+  verification: {
+    other: { "msvalidate.01": "07666E54F5BC40DA319E9F699931FC90" },
+  },
   title: {
     default: title,
     template: `%s | ${siteName}`,
