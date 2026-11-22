@@ -133,6 +133,8 @@ const structuredData = {
       sameAs: [
         "https://www.linkedin.com/in/gmgvisual/",
         "https://www.youtube.com/@GMGVisualVN/videos",
+        "https://www.facebook.com/GMGVisual",
+        "https://www.instagram.com/gmgvisualVN/",
       ],
     },
     {
