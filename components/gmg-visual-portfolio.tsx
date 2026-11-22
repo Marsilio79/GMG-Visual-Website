@@ -16,6 +16,25 @@ import { Carousel } from "@/components/carousel"
 import { PhotoCarousel } from "@/components/photo-carousel"
 import type { PhotoCategories } from "@/lib/photo-categories"
 
+// Paste the public link to the Google Business Profile reviews here (the share link
+// from "Get more reviews" in the profile). While it is empty the "See all reviews"
+// button is hidden.
+const googleReviewsUrl = ""
+
+// Real Google reviews. Check that each reviewer agrees to being quoted before publishing.
+const testimonials = [
+  {
+    quote: "Highly recommend them to any brand looking for strategic, high-converting video content!!!",
+    author: "Mai Wellbeing",
+    detail: "Google review",
+  },
+  {
+    quote: "GMG Visual will definitely remain one of my top choices whenever I have an event or project in Da Nang. Highly recommended!",
+    author: "Event and wedding planner",
+    detail: "Google review, Da Nang",
+  },
+]
+
 export default function GMGVisualPortfolio({
   photoCategories: folderPhotoCategories,
 }: {
@@ -1061,14 +1080,17 @@ export default function GMGVisualPortfolio({
       {/* Introduction Section */}
       <section id="approach" className="pt-16 md:pt-24 pb-16 md:pb-20 px-6">
         <div className="max-w-[700px] mx-auto text-center">
+          <p className="mb-6 md:mb-8 text-[11px] md:text-xs tracking-[0.3em] uppercase font-light text-textMuted">
+            Hội An · Da Nang · Central Vietnam
+          </p>
           <h1 className="font-heading text-5xl sm:text-6xl md:text-7xl font-medium tracking-tight text-textPrimary leading-[1.1] mb-8 md:mb-10">
             {"The Way You're Seen Matters."}
           </h1>
           <div className="space-y-6 text-lg md:text-xl text-textMuted font-light leading-relaxed mb-10 md:mb-12">
             <p>People discover your business long before they visit it.</p>
             <p>
-              We help businesses, brands and creators build a digital presence through photography, videography,
-              virtual tours and modern websites.
+              From Hội An and Da Nang, we help hotels, restaurants, brands and creators build a digital presence
+              through photography, videography, virtual tours and modern websites.
             </p>
           </div>
           <Link
@@ -1998,6 +2020,50 @@ export default function GMGVisualPortfolio({
               Every project is unique. Tell us about your idea, and we'll prepare a proposal tailored to your needs.
             </p>
           </div>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section id="testimonials" className="py-16 md:py-24 px-4 sm:px-6">
+        <div className="max-w-3xl mx-auto">
+          <div className="text-center mb-12 md:mb-16">
+            <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-light tracking-wide text-textPrimary mb-8 md:mb-12">
+              What Clients Say
+            </h2>
+            <div className="w-24 h-px bg-gray-300 mx-auto" />
+          </div>
+
+          <div className="space-y-10 md:space-y-14">
+            {testimonials.map((testimonial) => (
+              <figure key={testimonial.author} className="text-center">
+                <blockquote className="font-heading text-xl sm:text-2xl md:text-3xl font-light text-textPrimary leading-snug">
+                  {`“${testimonial.quote}”`}
+                </blockquote>
+                <figcaption className="mt-5 text-xs tracking-[0.2em] uppercase font-medium text-textMuted">
+                  {testimonial.author}
+                  <span className="block mt-1 font-light normal-case tracking-normal text-textMuted/80">
+                    {testimonial.detail}
+                  </span>
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+
+          {googleReviewsUrl && (
+            <div className="text-center mt-12 md:mt-16">
+              <Link
+                href={googleReviewsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex items-center gap-4 border border-textPrimary/40 px-6 py-3 hover:border-textPrimary hover:bg-textPrimary transition-all duration-300"
+              >
+                <span className="text-xs tracking-[0.25em] uppercase font-medium text-textPrimary group-hover:text-white transition-colors duration-300">
+                  See all reviews on Google
+                </span>
+                <ArrowRight className="w-4 h-4 text-textPrimary group-hover:text-white group-hover:translate-x-1 transition-all duration-300" />
+              </Link>
+            </div>
+          )}
         </div>
       </section>
 

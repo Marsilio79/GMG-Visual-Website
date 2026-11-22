@@ -2,6 +2,7 @@ import type React from "react"
 import type { Metadata, Viewport } from "next"
 import { Space_Grotesk } from "next/font/google"
 import "./globals.css"
+import { FloatingContact } from "@/components/floating-contact"
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -11,9 +12,9 @@ const spaceGrotesk = Space_Grotesk({
 
 const siteUrl = "https://gmgvisual.com"
 const siteName = "GMG Visual"
-const title = "GMG Visual | Photography, Videography, Virtual Tours & Websites"
+const title = "GMG Visual | Photography & Virtual Tours in Hội An, Da Nang"
 const description =
-  "Professional photography, videography, Google Maps & 360° virtual tours and websites designed to help businesses build a consistent digital presence."
+  "Photography, videography, Google Maps & 360° virtual tours and websites for hotels, restaurants and brands in Hội An, Da Nang and Central Vietnam."
 const ogImage = "https://gmgvisual.com/gmgvisual-v02-assets/graphok.jpg"
 
 export const metadata: Metadata = {
@@ -39,7 +40,7 @@ export const metadata: Metadata = {
         url: ogImage,
         width: 1200,
         height: 630,
-        alt: "GMG Visual — Photography, Videography & Virtual Tours",
+        alt: "GMG Visual: Photography, Videography & Virtual Tours in Hội An and Da Nang",
       },
     ],
   },
@@ -80,6 +81,7 @@ const structuredData = {
       "@type": "ProfessionalService",
       "@id": `${siteUrl}/#business`,
       name: siteName,
+      alternateName: ["GMG Visual Hoi An", "GMG Visual Da Nang"],
       image: ogImage,
       logo: `${siteUrl}/gmgvisual-v02-assets/gmgvisual-logo-v2-black-transp.png`,
       url: siteUrl,
@@ -91,7 +93,35 @@ const structuredData = {
         addressLocality: "Hoi An",
         addressCountry: "VN",
       },
-      areaServed: "Vietnam",
+      areaServed: [
+        { "@type": "City", name: "Hội An" },
+        { "@type": "City", name: "Da Nang" },
+        { "@type": "City", name: "Tam Kỳ" },
+        { "@type": "AdministrativeArea", name: "Quảng Nam" },
+        { "@type": "Place", name: "Central Vietnam" },
+      ],
+      knowsAbout: [
+        "Hospitality photography",
+        "Food photography",
+        "Event photography",
+        "Videography",
+        "Google Maps 360° virtual tours",
+        "Interactive virtual tours",
+        "Website design",
+      ],
+      hasOfferCatalog: {
+        "@type": "OfferCatalog",
+        name: "GMG Visual services",
+        itemListElement: [
+          { "@type": "Offer", itemOffered: { "@type": "Service", name: "Food and hospitality photography" } },
+          { "@type": "Offer", itemOffered: { "@type": "Service", name: "Event photography" } },
+          { "@type": "Offer", itemOffered: { "@type": "Service", name: "Promotional and advertising video production" } },
+          { "@type": "Offer", itemOffered: { "@type": "Service", name: "Google Maps 360° virtual tours" } },
+          { "@type": "Offer", itemOffered: { "@type": "Service", name: "Custom interactive virtual tours" } },
+          { "@type": "Offer", itemOffered: { "@type": "Service", name: "Website design" } },
+          { "@type": "Offer", itemOffered: { "@type": "Service", name: "Monthly content plans" } },
+        ],
+      },
       founder: {
         "@type": "Person",
         name: "Gianmarco Maccabruno Giometti",
@@ -128,7 +158,10 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
       </head>
-      <body>{children}</body>
+      <body>
+        {children}
+        <FloatingContact />
+      </body>
     </html>
   )
 }
