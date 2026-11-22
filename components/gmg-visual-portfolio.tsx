@@ -15,6 +15,7 @@ import { Youtube, X, ArrowRight, Menu } from "lucide-react"
 import { Carousel } from "@/components/carousel"
 import { PhotoCarousel } from "@/components/photo-carousel"
 import type { PhotoCategories } from "@/lib/photo-categories"
+import { faqs } from "@/lib/faq"
 
 // Paste the public link to the Google Business Profile reviews here (the share link
 // from "Get more reviews" in the profile). While it is empty the "See all reviews"
@@ -1081,7 +1082,7 @@ export default function GMGVisualPortfolio({
       <section id="approach" className="pt-16 md:pt-24 pb-16 md:pb-20 px-6">
         <div className="max-w-[700px] mx-auto text-center">
           <p className="mb-6 md:mb-8 text-[11px] md:text-xs tracking-[0.3em] uppercase font-light text-textMuted">
-            Hội An · Da Nang · Central Vietnam
+            Hội An · Da Nang · Vietnam
           </p>
           <h1 className="font-heading text-5xl sm:text-6xl md:text-7xl font-medium tracking-tight text-textPrimary leading-[1.1] mb-8 md:mb-10">
             {"The Way You're Seen Matters."}
@@ -2064,6 +2065,43 @@ export default function GMGVisualPortfolio({
               </Link>
             </div>
           )}
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section id="faq" className="py-16 md:py-24 px-4 sm:px-6">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              mainEntity: faqs.map((item) => ({
+                "@type": "Question",
+                name: item.question,
+                acceptedAnswer: { "@type": "Answer", text: item.answer },
+              })),
+            }),
+          }}
+        />
+        <div className="max-w-3xl mx-auto">
+          <div className="text-center mb-12 md:mb-16">
+            <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-light tracking-wide text-textPrimary mb-8 md:mb-12">
+              Frequently Asked Questions
+            </h2>
+            <div className="w-24 h-px bg-gray-300 mx-auto" />
+          </div>
+          <div className="divide-y divide-gray-200 border-y border-gray-200">
+            {faqs.map((item) => (
+              <details key={item.question} className="group py-5">
+                <summary className="cursor-pointer list-none flex items-center justify-between gap-6 font-heading text-lg sm:text-xl font-light text-textPrimary">
+                  {item.question}
+                  <span className="text-textMuted transition-transform duration-300 group-open:rotate-45 text-2xl leading-none">+</span>
+                </summary>
+                <p className="mt-4 text-textMuted font-light leading-relaxed">{item.answer}</p>
+              </details>
+            ))}
+          </div>
         </div>
       </section>
 

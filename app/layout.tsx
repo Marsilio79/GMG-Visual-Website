@@ -14,7 +14,7 @@ const siteUrl = "https://gmgvisual.com"
 const siteName = "GMG Visual"
 const title = "GMG Visual | Photography & Virtual Tours in Hội An, Da Nang"
 const description =
-  "Photography, videography, Google Maps & 360° virtual tours and websites for hotels, restaurants and brands in Hội An, Da Nang and Central Vietnam."
+  "Photography, videography, Google Maps & 360° virtual tours and websites for hotels, restaurants and brands in Hội An, Da Nang and across Vietnam."
 const ogImage = "https://gmgvisual.com/gmgvisual-v02-assets/graphok.jpg"
 
 export const metadata: Metadata = {
@@ -98,7 +98,7 @@ const structuredData = {
         { "@type": "City", name: "Da Nang" },
         { "@type": "City", name: "Tam Kỳ" },
         { "@type": "AdministrativeArea", name: "Quảng Nam" },
-        { "@type": "Place", name: "Central Vietnam" },
+        { "@type": "Country", name: "Vietnam" },
       ],
       knowsAbout: [
         "Hospitality photography",
