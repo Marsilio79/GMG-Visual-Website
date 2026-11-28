@@ -52,25 +52,25 @@ export function SiteFooter() {
           <div>
             <p className="text-sm tracking-[0.2em] uppercase font-medium text-textPrimary mb-6">Solutions</p>
             <div className="flex flex-col space-y-3">
-              <Link href="/#videos" className="text-left text-textMuted font-light hover:text-primary transition-colors">
+              <Link href="/videography" className="text-left text-textMuted font-light hover:text-primary transition-colors">
                 Videography
               </Link>
-              <Link href="/#photos" className="text-left text-textMuted font-light hover:text-primary transition-colors">
+              <Link href="/photography" className="text-left text-textMuted font-light hover:text-primary transition-colors">
                 Photography
               </Link>
               <Link
-                href="/#google-maps-360"
+                href="/google-maps-tours"
                 className="text-left text-textMuted font-light hover:text-primary transition-colors"
               >
                 Google Maps &amp; 360° Virtual Tours
               </Link>
               <Link
-                href="/#custom-virtual-tours"
+                href="/google-maps-tours#custom-virtual-tours"
                 className="text-left text-textMuted font-light hover:text-primary transition-colors"
               >
                 Custom Virtual Tours
               </Link>
-              <Link href="/#websites" className="text-left text-textMuted font-light hover:text-primary transition-colors">
+              <Link href="/websites" className="text-left text-textMuted font-light hover:text-primary transition-colors">
                 Websites
               </Link>
             </div>
