@@ -5,9 +5,9 @@ import { Card, CardContent } from "@/components/ui/card"
 import { MarketingPageLayout } from "@/components/marketing-page-layout"
 
 export const metadata: Metadata = {
-  title: "Packages",
+  title: "All-in-One Creative Services for Businesses",
   description:
-    "All In One digital presence packages and Monthly Content plans from GMG Visual, tailored to each client's goals, audience and the way they communicate.",
+    "Photography, videography, social media content, 360° virtual tours and websites — all under one roof. GMG Visual is your single creative partner for complete visual content and digital presence.",
   alternates: {
     canonical: "/packages",
   },
@@ -17,9 +17,25 @@ export default function PackagesPage() {
   return (
     <MarketingPageLayout
       eyebrow="Packages"
-      title="Packages"
-      intro="Every business is different. That's why every proposal is built around your goals, your audience and the way you communicate."
+      title="All-in-One Creative Services for Your Business"
+      intro="Running a business is already complicated. Managing five different creative suppliers shouldn't be another headache."
     >
+      <div className="max-w-2xl mx-auto mb-16 md:mb-20 text-center space-y-4">
+        <p className="text-textMuted font-light text-lg leading-relaxed">
+          GMG Visual brings photography, videography, social media content, 360° virtual tours and website creation
+          together under one roof. Instead of coordinating multiple professionals, managing different schedules and
+          dealing with disconnected services, you have one creative partner who takes care of your visual content
+          and digital presence.
+        </p>
+        <p className="text-textMuted font-light text-lg leading-relaxed">
+          From a complete visual launch to ongoing monthly content production, we bring everything together in one
+          coordinated solution.
+        </p>
+        <p className="font-heading text-2xl sm:text-3xl md:text-4xl font-light text-textPrimary leading-snug pt-2">
+          One partner. One creative direction. Everything your business needs to be seen.
+        </p>
+      </div>
+
       <div className="grid md:grid-cols-2 gap-8 md:gap-12">
         <Card className="border-0 shadow-lg h-full">
           <CardContent className="p-6 sm:p-8 md:p-12 h-full flex flex-col">

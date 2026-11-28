@@ -9,9 +9,9 @@ import { Card, CardContent } from "@/components/ui/card"
 import { videoCategories } from "@/lib/videos"
 
 export const metadata: Metadata = {
-  title: "Videography",
+  title: "Commercial Videography, Reels & Social Media Video Production",
   description:
-    "Showreels, promotional and advertising videos, event coverage, short films, music videos and stock footage produced by GMG Visual in Hội An, Da Nang and across Vietnam.",
+    "Commercial videography, Instagram Reels, TikTok videos and social media video production for hotels, restaurants and brands by GMG Visual in Hội An, Da Nang and across Vietnam.",
   alternates: {
     canonical: "/videography",
   },
@@ -21,9 +21,20 @@ export default function VideographyPage() {
   return (
     <MarketingPageLayout
       eyebrow="Video Production"
-      title="Videography"
-      intro="Showreels, promotional and advertising videos, event coverage, short films, music videos and stock footage — produced and edited by GMG Visual in Hội An, Da Nang and across Vietnam."
+      title="Commercial Videography, Reels & Social Media Video Production"
+      intro="GMG Visual creates professional video content for hotels, resorts, restaurants, businesses and brands. From corporate films and promotional videos to Instagram Reels, TikTok videos and short-form social media content, we turn ideas, places and experiences into engaging visual stories."
     >
+      <div className="max-w-2xl mx-auto mb-16 md:mb-20 text-center space-y-4">
+        <p className="text-textMuted font-light text-lg leading-relaxed">
+          Whether you need a brand film, a promotional campaign or a consistent flow of content for your social media
+          channels, we handle the production from concept to final edit.
+        </p>
+        <p className="text-textMuted font-light text-lg leading-relaxed">
+          Based in Hoi An and Da Nang, Vietnam, we work with local and international clients to create video content
+          that captures attention, communicates your identity and helps your business connect with its audience.
+        </p>
+      </div>
+
       {/* Showreels */}
       <div className="mb-12 md:mb-20">
         <h3 className="font-heading text-xl sm:text-2xl font-medium tracking-wide text-textPrimary mb-8 md:mb-12 text-center">
