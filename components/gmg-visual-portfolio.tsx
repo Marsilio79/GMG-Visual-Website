@@ -2585,51 +2585,31 @@ export default function GMGVisualPortfolio({
               <p className="text-sm tracking-[0.2em] uppercase font-medium text-textPrimary mb-6">Solutions</p>
               <div className="flex flex-col space-y-3">
                 <Link
-                  href="#videos"
-                  onClick={(e) => {
-                    e.preventDefault()
-                    scrollToSection("videos")
-                  }}
+                  href="/videography"
                   className="text-left text-textMuted font-light hover:text-primary transition-colors"
                 >
                   Videography
                 </Link>
                 <Link
-                  href="#photos"
-                  onClick={(e) => {
-                    e.preventDefault()
-                    scrollToSection("photos")
-                  }}
+                  href="/photography"
                   className="text-left text-textMuted font-light hover:text-primary transition-colors"
                 >
                   Photography
                 </Link>
                 <Link
-                  href="#google-maps-360"
-                  onClick={(e) => {
-                    e.preventDefault()
-                    scrollToSection("google-maps-360")
-                  }}
+                  href="/google-maps-tours"
                   className="text-left text-textMuted font-light hover:text-primary transition-colors"
                 >
                   Google Maps &amp; 360° Virtual Tours
                 </Link>
                 <Link
-                  href="#custom-virtual-tours"
-                  onClick={(e) => {
-                    e.preventDefault()
-                    scrollToSection("custom-virtual-tours")
-                  }}
+                  href="/google-maps-tours#custom-virtual-tours"
                   className="text-left text-textMuted font-light hover:text-primary transition-colors"
                 >
                   Custom Virtual Tours
                 </Link>
                 <Link
-                  href="#websites"
-                  onClick={(e) => {
-                    e.preventDefault()
-                    scrollToSection("websites")
-                  }}
+                  href="/websites"
                   className="text-left text-textMuted font-light hover:text-primary transition-colors"
                 >
                   Websites
