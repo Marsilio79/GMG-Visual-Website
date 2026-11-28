@@ -7,9 +7,9 @@ import { MarketingPageLayout } from "@/components/marketing-page-layout"
 import { googleMaps360Photos, virtualTourProjects, type VirtualTourProject } from "@/lib/virtual-tours"
 
 export const metadata: Metadata = {
-  title: "Google Maps & 360° Virtual Tours",
+  title: "Google Maps 360° Photography & Virtual Tours",
   description:
-    "Professional Google Maps 360° photography and fully custom, interactive virtual tours by GMG Visual, for hotels, restaurants and brands in Hội An, Da Nang and across Vietnam.",
+    "Showcase your business on Google Maps with professional 360° photography and immersive virtual tours for hotels, restaurants and commercial spaces.",
   alternates: {
     canonical: "/google-maps-tours",
   },
@@ -49,8 +49,23 @@ export default function GoogleMapsToursPage() {
   return (
     <MarketingPageLayout
       eyebrow="Virtual Tours"
-      title="Google Maps & 360° Virtual Tours"
-      intro="Google Maps 360° photography and fully custom, interactive virtual tours that let visitors explore your business online before they ever walk through the door."
+      title="Google Maps 360° Photography & Virtual Tours"
+      intro={
+        <>
+          <p>Let people explore your business before they arrive.</p>
+          <p>
+            GMG Visual creates professional 360° photography and immersive virtual tours that help hotels,
+            restaurants, resorts and businesses showcase their spaces online. With Google Maps 360° photography,
+            Google Street View photography and custom virtual tour solutions, your visitors can discover your
+            location, explore its atmosphere and get a better understanding of the experience you offer.
+          </p>
+          <p>
+            Based in Hoi An and Da Nang, Vietnam, we help businesses improve their Google Business Profile and online
+            visibility through hotel virtual tours, restaurant virtual tours and other interactive, custom business
+            virtual tours.
+          </p>
+        </>
+      }
     >
       {/* Google Maps 360° Photography */}
       <div id="google-maps-360" className="mb-12 md:mb-20">

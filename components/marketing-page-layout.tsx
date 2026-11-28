@@ -10,7 +10,7 @@ export function MarketingPageLayout({
 }: {
   eyebrow?: string
   title: string
-  intro: string
+  intro: React.ReactNode
   children: React.ReactNode
 }) {
   return (
@@ -25,7 +25,7 @@ export function MarketingPageLayout({
           <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl font-medium tracking-tight text-textPrimary leading-[1.1] mb-6">
             {title}
           </h1>
-          <p className="text-lg text-textMuted font-light leading-relaxed max-w-2xl">{intro}</p>
+          <div className="text-lg text-textMuted font-light leading-relaxed max-w-2xl space-y-4">{intro}</div>
         </div>
 
         <div className="max-w-5xl mx-auto mt-16 md:mt-20">{children}</div>

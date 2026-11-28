@@ -4,14 +4,13 @@ import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 import { MarketingPageLayout } from "@/components/marketing-page-layout"
 import { YouTubeVideo } from "@/components/youtube-video"
-import { Carousel } from "@/components/carousel"
 import { Card, CardContent } from "@/components/ui/card"
 import { videoCategories } from "@/lib/videos"
 
 export const metadata: Metadata = {
-  title: "Commercial Videography, Reels & Social Media Video Production",
+  title: "Commercial Videography & Video Production",
   description:
-    "Commercial videography, Instagram Reels, TikTok videos and social media video production for hotels, restaurants and brands by GMG Visual in Hội An, Da Nang and across Vietnam.",
+    "Professional video production in Vietnam for hotels, resorts, restaurants and brands. Reels, TikTok videos and social media content.",
   alternates: {
     canonical: "/videography",
   },
@@ -22,25 +21,31 @@ export default function VideographyPage() {
     <MarketingPageLayout
       eyebrow="Video Production"
       title="Commercial Videography, Reels & Social Media Video Production"
-      intro="GMG Visual creates professional video content for hotels, resorts, restaurants, businesses and brands. From corporate films and promotional videos to Instagram Reels, TikTok videos and short-form social media content, we turn ideas, places and experiences into engaging visual stories."
+      intro={
+        <>
+          <p>
+            GMG Visual creates professional video content for hotels, resorts, restaurants, businesses and brands.
+            From corporate films and promotional videos to Instagram Reels, TikTok videos and short-form social media
+            content, we turn ideas, places and experiences into engaging visual stories.
+          </p>
+          <p>
+            Whether you need a brand film, a promotional campaign or a consistent flow of monthly video content for
+            your social media channels, we handle the production from concept to final edit.
+          </p>
+          <p>
+            Based in Hoi An and Da Nang, Vietnam, we work with local and international clients on commercial video
+            production, corporate videography, hotel and resort videography and event videography that captures
+            attention, communicates your identity and helps your business connect with its audience.
+          </p>
+        </>
+      }
     >
-      <div className="max-w-2xl mx-auto mb-16 md:mb-20 text-center space-y-4">
-        <p className="text-textMuted font-light text-lg leading-relaxed">
-          Whether you need a brand film, a promotional campaign or a consistent flow of content for your social media
-          channels, we handle the production from concept to final edit.
-        </p>
-        <p className="text-textMuted font-light text-lg leading-relaxed">
-          Based in Hoi An and Da Nang, Vietnam, we work with local and international clients to create video content
-          that captures attention, communicates your identity and helps your business connect with its audience.
-        </p>
-      </div>
-
       {/* Showreels */}
       <div className="mb-12 md:mb-20">
         <h3 className="font-heading text-xl sm:text-2xl font-medium tracking-wide text-textPrimary mb-8 md:mb-12 text-center">
           SHOWREELS
         </h3>
-        <Carousel itemsPerView={{ mobile: 1, desktop: 3 }}>
+        <div className="grid md:grid-cols-3 gap-4 md:gap-8">
           {videoCategories.showreels.map((video) => (
             <Card key={video.id} className="border-0 shadow-lg h-full">
               <CardContent className="p-0 h-full flex flex-col">
@@ -53,7 +58,7 @@ export default function VideographyPage() {
               </CardContent>
             </Card>
           ))}
-        </Carousel>
+        </div>
       </div>
 
       {/* Advertising & Promotionals */}
@@ -61,7 +66,7 @@ export default function VideographyPage() {
         <h3 className="font-heading text-xl sm:text-2xl font-medium tracking-wide text-textPrimary mb-8 md:mb-12 text-center">
           ADVERTISING &amp; PROMOTIONAL
         </h3>
-        <Carousel itemsPerView={{ mobile: 1, desktop: 3 }}>
+        <div className="grid md:grid-cols-3 gap-4 md:gap-8">
           {videoCategories.advertising.map((video) => (
             <Card key={video.id} className="border-0 shadow-lg h-full">
               <CardContent className="p-0 h-full flex flex-col">
@@ -74,7 +79,7 @@ export default function VideographyPage() {
               </CardContent>
             </Card>
           ))}
-        </Carousel>
+        </div>
       </div>
 
       {/* Events */}
@@ -82,7 +87,7 @@ export default function VideographyPage() {
         <h3 className="font-heading text-xl sm:text-2xl font-medium tracking-wide text-textPrimary mb-8 md:mb-12 text-center">
           EVENTS
         </h3>
-        <Carousel itemsPerView={{ mobile: 1, desktop: 3 }}>
+        <div className="grid md:grid-cols-3 gap-4 md:gap-8">
           {videoCategories.events.map((video) => (
             <Card key={video.id} className="border-0 shadow-lg h-full">
               <CardContent className="p-0 h-full flex flex-col">
@@ -95,7 +100,7 @@ export default function VideographyPage() {
               </CardContent>
             </Card>
           ))}
-        </Carousel>
+        </div>
       </div>
 
       {/* Short Films */}
@@ -125,7 +130,7 @@ export default function VideographyPage() {
         <h3 className="font-heading text-xl sm:text-2xl font-medium tracking-wide text-textPrimary mb-8 md:mb-12 text-center">
           MUSIC VIDEOS
         </h3>
-        <Carousel itemsPerView={{ mobile: 1, desktop: 3 }}>
+        <div className="grid md:grid-cols-3 gap-4 md:gap-8">
           {videoCategories.musicVideos.map((video) => (
             <Card key={video.id} className="border-0 shadow-lg h-full">
               <CardContent className="p-0 h-full flex flex-col">
@@ -138,7 +143,7 @@ export default function VideographyPage() {
               </CardContent>
             </Card>
           ))}
-        </Carousel>
+        </div>
       </div>
 
       {/* Stock Footage */}

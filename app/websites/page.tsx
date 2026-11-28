@@ -7,9 +7,9 @@ import { MarketingPageLayout } from "@/components/marketing-page-layout"
 import { websiteProjects } from "@/lib/websites"
 
 export const metadata: Metadata = {
-  title: "Websites",
+  title: "Website Design for Hotels & Businesses",
   description:
-    "Websites designed and built by GMG Visual for hotels, restaurants and brands, bringing video, photography and storytelling together in one digital experience.",
+    "Modern website design for hotels, restaurants, resorts and businesses. Professional websites built to showcase your brand and services.",
   alternates: {
     canonical: "/websites",
   },
@@ -19,8 +19,24 @@ export default function WebsitesPage() {
   return (
     <MarketingPageLayout
       eyebrow="Web Design"
-      title="Websites"
-      intro="Where video, photography and storytelling come together in one digital experience."
+      title="Website Design for Hotels, Businesses & Brands"
+      intro={
+        <>
+          <p>
+            Your website is often the first place potential customers discover your business. It should communicate
+            who you are, showcase what you offer and make it easy for people to get in touch.
+          </p>
+          <p>
+            GMG Visual creates modern websites for hotels, restaurants, hospitality businesses and brands. Combining
+            visual storytelling, photography, video and thoughtful custom business website design, we build digital
+            experiences that present your business professionally and help turn visitors into potential customers.
+          </p>
+          <p>
+            Based in Vietnam, we work with businesses looking to strengthen their digital presence locally and
+            internationally through professional, hospitality-focused website design and development.
+          </p>
+        </>
+      }
     >
       <div className="grid md:grid-cols-3 gap-4 md:gap-8">
         {websiteProjects.map((site) => (

@@ -5,9 +5,9 @@ import { Card, CardContent } from "@/components/ui/card"
 import { MarketingPageLayout } from "@/components/marketing-page-layout"
 
 export const metadata: Metadata = {
-  title: "All-in-One Creative Services for Businesses",
+  title: "All-in-One Creative Services & Content Packages",
   description:
-    "Photography, videography, social media content, 360° virtual tours and websites — all under one roof. GMG Visual is your single creative partner for complete visual content and digital presence.",
+    "Photography, video production, social media content, virtual tours and website creation under one roof. One creative partner for your business.",
   alternates: {
     canonical: "/packages",
   },
@@ -18,24 +18,26 @@ export default function PackagesPage() {
     <MarketingPageLayout
       eyebrow="Packages"
       title="All-in-One Creative Services for Your Business"
-      intro="Running a business is already complicated. Managing five different creative suppliers shouldn't be another headache."
+      intro={
+        <>
+          <p>
+            Running a business is already complicated. Managing five different creative suppliers shouldn&apos;t be
+            another headache.
+          </p>
+          <p>
+            GMG Visual brings photography, videography, social media content, 360° virtual tours and website
+            creation together under one roof. Instead of coordinating multiple professionals, managing different
+            schedules and dealing with disconnected services, you have one creative partner who takes care of your
+            visual content and digital presence.
+          </p>
+          <p>
+            From a complete visual launch to ongoing monthly content production, we bring everything together in one
+            coordinated solution.
+          </p>
+          <p>One partner. One creative direction. Everything your business needs to be seen.</p>
+        </>
+      }
     >
-      <div className="max-w-2xl mx-auto mb-16 md:mb-20 text-center space-y-4">
-        <p className="text-textMuted font-light text-lg leading-relaxed">
-          GMG Visual brings photography, videography, social media content, 360° virtual tours and website creation
-          together under one roof. Instead of coordinating multiple professionals, managing different schedules and
-          dealing with disconnected services, you have one creative partner who takes care of your visual content
-          and digital presence.
-        </p>
-        <p className="text-textMuted font-light text-lg leading-relaxed">
-          From a complete visual launch to ongoing monthly content production, we bring everything together in one
-          coordinated solution.
-        </p>
-        <p className="font-heading text-2xl sm:text-3xl md:text-4xl font-light text-textPrimary leading-snug pt-2">
-          One partner. One creative direction. Everything your business needs to be seen.
-        </p>
-      </div>
-
       <div className="grid md:grid-cols-2 gap-8 md:gap-12">
         <Card className="border-0 shadow-lg h-full">
           <CardContent className="p-6 sm:p-8 md:p-12 h-full flex flex-col">
