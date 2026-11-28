@@ -347,13 +347,18 @@ export default function GMGVisualPortfolio({
     scrollToSection(sectionId)
   }
 
-  const mobileNavItems = [
-    { label: "Home", id: "hero" },
-    { label: "Videos", id: "videos" },
-    { label: "Photos", id: "photos" },
-    { label: "About", id: "about" },
-    { label: "Packages", id: "packages" },
-    { label: "Request a Quote", id: "request-quote" },
+  const mobileNavItems: (
+    | { label: string; kind: "scroll"; id: string }
+    | { label: string; kind: "link"; href: string }
+  )[] = [
+    { label: "Home", kind: "scroll", id: "hero" },
+    { label: "Videography", kind: "link", href: "/videography" },
+    { label: "Photography", kind: "link", href: "/photography" },
+    { label: "Google Maps & Tours", kind: "link", href: "/google-maps-tours" },
+    { label: "Websites", kind: "link", href: "/websites" },
+    { label: "Packages", kind: "link", href: "/packages" },
+    { label: "About", kind: "scroll", id: "about" },
+    { label: "Contact", kind: "scroll", id: "request-quote" },
   ]
 
   const LazyIframe = ({ embedId, title }: { embedId: string; title: string }) => {
@@ -911,35 +916,39 @@ export default function GMGVisualPortfolio({
                 Home
               </Link>
               <Link
-                href="#videos"
-                onClick={(e) => {
-                  e.preventDefault()
-                  scrollToSection("videos")
-                }}
+                href="/videography"
                 className={`transition-colors font-light hover:text-primary ${
                   isNavScrolled ? "text-textMuted" : "text-white"
                 }`}
               >
-                Videos
+                Videography
               </Link>
               <Link
-                href="#photos"
-                onClick={(e) => {
-                  e.preventDefault()
-                  scrollToSection("photos")
-                }}
+                href="/photography"
                 className={`transition-colors font-light hover:text-primary ${
                   isNavScrolled ? "text-textMuted" : "text-white"
                 }`}
               >
-                Photos
+                Photography
               </Link>
               <Link
-                href="#packages"
-                onClick={(e) => {
-                  e.preventDefault()
-                  scrollToSection("packages")
-                }}
+                href="/google-maps-tours"
+                className={`transition-colors font-light hover:text-primary ${
+                  isNavScrolled ? "text-textMuted" : "text-white"
+                }`}
+              >
+                Google Maps &amp; Tours
+              </Link>
+              <Link
+                href="/websites"
+                className={`transition-colors font-light hover:text-primary ${
+                  isNavScrolled ? "text-textMuted" : "text-white"
+                }`}
+              >
+                Websites
+              </Link>
+              <Link
+                href="/packages"
                 className={`transition-colors font-light hover:text-primary ${
                   isNavScrolled ? "text-textMuted" : "text-white"
                 }`}
@@ -1031,20 +1040,32 @@ export default function GMGVisualPortfolio({
               gap: "17px",
             }}
           >
-            {mobileNavItems.map((item) => (
-              <Link
-                key={item.id}
-                href={`#${item.id}`}
-                onClick={(e) => {
-                  e.preventDefault()
-                  handleMobileNavClick(item.id)
-                }}
-                style={{ fontSize: "16px" }}
-                className="font-light tracking-wide text-textPrimary hover:text-primary transition-colors"
-              >
-                {item.label}
-              </Link>
-            ))}
+            {mobileNavItems.map((item) =>
+              item.kind === "scroll" ? (
+                <Link
+                  key={item.id}
+                  href={`#${item.id}`}
+                  onClick={(e) => {
+                    e.preventDefault()
+                    handleMobileNavClick(item.id)
+                  }}
+                  style={{ fontSize: "16px" }}
+                  className="font-light tracking-wide text-textPrimary hover:text-primary transition-colors"
+                >
+                  {item.label}
+                </Link>
+              ) : (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  style={{ fontSize: "16px" }}
+                  className="font-light tracking-wide text-textPrimary hover:text-primary transition-colors"
+                >
+                  {item.label}
+                </Link>
+              ),
+            )}
           </div>
         </div>
       </div>
@@ -1517,6 +1538,16 @@ export default function GMGVisualPortfolio({
               <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
             </Link>
           </div>
+
+          <div className="text-center mt-12">
+            <Link
+              href="/videography"
+              className="group inline-flex items-center gap-2 text-sm tracking-[0.2em] uppercase font-medium text-textPrimary border-b border-textPrimary/30 hover:border-textPrimary pb-1 transition-colors"
+            >
+              See All Videography
+              <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -1642,6 +1673,16 @@ export default function GMGVisualPortfolio({
                 <Button className="bg-textPrimary text-white hover:bg-textPrimary/90 py-3 px-8 font-light tracking-wide rounded-lg transition-colors">
                   Book Your Session
                 </Button>
+              </Link>
+            </div>
+
+            <div className="text-center mt-12">
+              <Link
+                href="/photography"
+                className="group inline-flex items-center gap-2 text-sm tracking-[0.2em] uppercase font-medium text-textPrimary border-b border-textPrimary/30 hover:border-textPrimary pb-1 transition-colors"
+              >
+                See All Photography
+                <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
               </Link>
             </div>
           </div>
@@ -1867,6 +1908,16 @@ export default function GMGVisualPortfolio({
               {virtualTourProjects.slice(4).map(renderVirtualTourCard)}
             </div>
           </div>
+
+          <div className="text-center mt-12">
+            <Link
+              href="/google-maps-tours"
+              className="group inline-flex items-center gap-2 text-sm tracking-[0.2em] uppercase font-medium text-textPrimary border-b border-textPrimary/30 hover:border-textPrimary pb-1 transition-colors"
+            >
+              See Google Maps &amp; Tours
+              <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -1924,6 +1975,16 @@ export default function GMGVisualPortfolio({
                 </CardContent>
               </Card>
             ))}
+          </div>
+
+          <div className="text-center mt-12">
+            <Link
+              href="/websites"
+              className="group inline-flex items-center gap-2 text-sm tracking-[0.2em] uppercase font-medium text-textPrimary border-b border-textPrimary/30 hover:border-textPrimary pb-1 transition-colors"
+            >
+              See All Websites
+              <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+            </Link>
           </div>
         </div>
       </section>
@@ -2020,6 +2081,13 @@ export default function GMGVisualPortfolio({
             <p className="text-textMuted font-light text-lg leading-relaxed">
               Every project is unique. Tell us about your idea, and we'll prepare a proposal tailored to your needs.
             </p>
+            <Link
+              href="/packages"
+              className="group inline-flex items-center gap-2 mt-6 text-sm tracking-[0.2em] uppercase font-medium text-textPrimary border-b border-textPrimary/30 hover:border-textPrimary pb-1 transition-colors"
+            >
+              See Full Packages
+              <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+            </Link>
           </div>
         </div>
       </section>
@@ -2517,51 +2585,31 @@ export default function GMGVisualPortfolio({
               <p className="text-sm tracking-[0.2em] uppercase font-medium text-textPrimary mb-6">Solutions</p>
               <div className="flex flex-col space-y-3">
                 <Link
-                  href="#videos"
-                  onClick={(e) => {
-                    e.preventDefault()
-                    scrollToSection("videos")
-                  }}
+                  href="/videography"
                   className="text-left text-textMuted font-light hover:text-primary transition-colors"
                 >
                   Videography
                 </Link>
                 <Link
-                  href="#photos"
-                  onClick={(e) => {
-                    e.preventDefault()
-                    scrollToSection("photos")
-                  }}
+                  href="/photography"
                   className="text-left text-textMuted font-light hover:text-primary transition-colors"
                 >
                   Photography
                 </Link>
                 <Link
-                  href="#google-maps-360"
-                  onClick={(e) => {
-                    e.preventDefault()
-                    scrollToSection("google-maps-360")
-                  }}
+                  href="/google-maps-tours"
                   className="text-left text-textMuted font-light hover:text-primary transition-colors"
                 >
                   Google Maps &amp; 360° Virtual Tours
                 </Link>
                 <Link
-                  href="#custom-virtual-tours"
-                  onClick={(e) => {
-                    e.preventDefault()
-                    scrollToSection("custom-virtual-tours")
-                  }}
+                  href="/google-maps-tours#custom-virtual-tours"
                   className="text-left text-textMuted font-light hover:text-primary transition-colors"
                 >
                   Custom Virtual Tours
                 </Link>
                 <Link
-                  href="#websites"
-                  onClick={(e) => {
-                    e.preventDefault()
-                    scrollToSection("websites")
-                  }}
+                  href="/websites"
                   className="text-left text-textMuted font-light hover:text-primary transition-colors"
                 >
                   Websites
