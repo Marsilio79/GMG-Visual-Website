@@ -347,13 +347,18 @@ export default function GMGVisualPortfolio({
     scrollToSection(sectionId)
   }
 
-  const mobileNavItems = [
-    { label: "Home", id: "hero" },
-    { label: "Videos", id: "videos" },
-    { label: "Photos", id: "photos" },
-    { label: "About", id: "about" },
-    { label: "Packages", id: "packages" },
-    { label: "Request a Quote", id: "request-quote" },
+  const mobileNavItems: (
+    | { label: string; kind: "scroll"; id: string }
+    | { label: string; kind: "link"; href: string }
+  )[] = [
+    { label: "Home", kind: "scroll", id: "hero" },
+    { label: "Videography", kind: "link", href: "/videography" },
+    { label: "Photography", kind: "link", href: "/photography" },
+    { label: "Google Maps & Tours", kind: "link", href: "/google-maps-tours" },
+    { label: "Websites", kind: "link", href: "/websites" },
+    { label: "Packages", kind: "link", href: "/packages" },
+    { label: "About", kind: "scroll", id: "about" },
+    { label: "Contact", kind: "scroll", id: "request-quote" },
   ]
 
   const LazyIframe = ({ embedId, title }: { embedId: string; title: string }) => {
@@ -911,35 +916,39 @@ export default function GMGVisualPortfolio({
                 Home
               </Link>
               <Link
-                href="#videos"
-                onClick={(e) => {
-                  e.preventDefault()
-                  scrollToSection("videos")
-                }}
+                href="/videography"
                 className={`transition-colors font-light hover:text-primary ${
                   isNavScrolled ? "text-textMuted" : "text-white"
                 }`}
               >
-                Videos
+                Videography
               </Link>
               <Link
-                href="#photos"
-                onClick={(e) => {
-                  e.preventDefault()
-                  scrollToSection("photos")
-                }}
+                href="/photography"
                 className={`transition-colors font-light hover:text-primary ${
                   isNavScrolled ? "text-textMuted" : "text-white"
                 }`}
               >
-                Photos
+                Photography
               </Link>
               <Link
-                href="#packages"
-                onClick={(e) => {
-                  e.preventDefault()
-                  scrollToSection("packages")
-                }}
+                href="/google-maps-tours"
+                className={`transition-colors font-light hover:text-primary ${
+                  isNavScrolled ? "text-textMuted" : "text-white"
+                }`}
+              >
+                Google Maps &amp; Tours
+              </Link>
+              <Link
+                href="/websites"
+                className={`transition-colors font-light hover:text-primary ${
+                  isNavScrolled ? "text-textMuted" : "text-white"
+                }`}
+              >
+                Websites
+              </Link>
+              <Link
+                href="/packages"
                 className={`transition-colors font-light hover:text-primary ${
                   isNavScrolled ? "text-textMuted" : "text-white"
                 }`}
@@ -1031,20 +1040,32 @@ export default function GMGVisualPortfolio({
               gap: "17px",
             }}
           >
-            {mobileNavItems.map((item) => (
-              <Link
-                key={item.id}
-                href={`#${item.id}`}
-                onClick={(e) => {
-                  e.preventDefault()
-                  handleMobileNavClick(item.id)
-                }}
-                style={{ fontSize: "16px" }}
-                className="font-light tracking-wide text-textPrimary hover:text-primary transition-colors"
-              >
-                {item.label}
-              </Link>
-            ))}
+            {mobileNavItems.map((item) =>
+              item.kind === "scroll" ? (
+                <Link
+                  key={item.id}
+                  href={`#${item.id}`}
+                  onClick={(e) => {
+                    e.preventDefault()
+                    handleMobileNavClick(item.id)
+                  }}
+                  style={{ fontSize: "16px" }}
+                  className="font-light tracking-wide text-textPrimary hover:text-primary transition-colors"
+                >
+                  {item.label}
+                </Link>
+              ) : (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  style={{ fontSize: "16px" }}
+                  className="font-light tracking-wide text-textPrimary hover:text-primary transition-colors"
+                >
+                  {item.label}
+                </Link>
+              ),
+            )}
           </div>
         </div>
       </div>
