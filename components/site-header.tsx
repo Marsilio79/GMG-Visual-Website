@@ -7,19 +7,23 @@ import { Menu, X } from "lucide-react"
 
 const navItems = [
   { label: "Home", href: "/#hero" },
-  { label: "Videos", href: "/#videos" },
-  { label: "Photos", href: "/#photos" },
-  { label: "Packages", href: "/#packages" },
+  { label: "Videography", href: "/videography" },
+  { label: "Photography", href: "/photography" },
+  { label: "Google Maps & Tours", href: "/google-maps-tours" },
+  { label: "Websites", href: "/websites" },
+  { label: "Packages", href: "/packages" },
   { label: "About", href: "/#about" },
 ]
 
 const mobileNavItems = [
   { label: "Home", href: "/#hero" },
-  { label: "Videos", href: "/#videos" },
-  { label: "Photos", href: "/#photos" },
+  { label: "Videography", href: "/videography" },
+  { label: "Photography", href: "/photography" },
+  { label: "Google Maps & Tours", href: "/google-maps-tours" },
+  { label: "Websites", href: "/websites" },
+  { label: "Packages", href: "/packages" },
   { label: "About", href: "/#about" },
-  { label: "Packages", href: "/#packages" },
-  { label: "Request a Quote", href: "/#request-quote" },
+  { label: "Contact", href: "/#request-quote" },
 ]
 
 export function SiteHeader() {
